@@ -1,0 +1,40 @@
+﻿using NetCoreAdoNet.Repositories;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace NetCoreAdoNet
+{
+    public partial class Form06UpdateNombreSala : Form
+    {
+        RepositorySalas repoSalas;
+        public Form06UpdateNombreSala()
+        {
+            InitializeComponent();
+            this.repoSalas = new RepositorySalas();
+            this.LoadSalas();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string oldName = this.lstSalas.SelectedItem.ToString();
+            string newName = this.txtNombre.Text;
+            this.repoSalas.UpdateNombreSala(newName, oldName);
+            this.LoadSalas();
+        }
+
+        private void LoadSalas()
+        {
+            List<string> nombresSalas = this.repoSalas.getNombresSalas();
+            this.lstSalas.Items.Clear();
+            foreach(string nombre in nombresSalas)
+            {
+                this.lstSalas.Items.Add(nombre);
+            }
+        }
+    }
+}
