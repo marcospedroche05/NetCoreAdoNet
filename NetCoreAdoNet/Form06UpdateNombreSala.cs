@@ -19,17 +19,17 @@ namespace NetCoreAdoNet
             this.LoadSalas();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private async void btnUpdate_Click(object sender, EventArgs e)
         {
             string oldName = this.lstSalas.SelectedItem.ToString();
             string newName = this.txtNombre.Text;
-            this.repoSalas.UpdateNombreSala(newName, oldName);
+            await this.repoSalas.UpdateNombreSalaAsync(newName, oldName);
             this.LoadSalas();
         }
 
-        private void LoadSalas()
+        private async void LoadSalas()
         {
-            List<string> nombresSalas = this.repoSalas.getNombresSalas();
+            List<string> nombresSalas = await this.repoSalas.GetNombresSalasAsync();
             this.lstSalas.Items.Clear();
             foreach(string nombre in nombresSalas)
             {
