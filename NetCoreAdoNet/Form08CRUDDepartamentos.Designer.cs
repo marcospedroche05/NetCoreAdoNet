@@ -57,6 +57,7 @@
             lstDepartamentos.Name = "lstDepartamentos";
             lstDepartamentos.Size = new Size(210, 229);
             lstDepartamentos.TabIndex = 1;
+            lstDepartamentos.SelectedIndexChanged += lstDepartamentos_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -114,6 +115,7 @@
             btnInsertar.TabIndex = 8;
             btnInsertar.Text = "Insertar";
             btnInsertar.UseVisualStyleBackColor = true;
+            btnInsertar.Click += btnInsertar_Click;
             // 
             // btnModificar
             // 
@@ -123,6 +125,7 @@
             btnModificar.TabIndex = 9;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -132,6 +135,7 @@
             btnEliminar.TabIndex = 10;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // Form08CRUDDepartamentos
             // 
