@@ -1,4 +1,5 @@
-﻿using NetCoreAdoNet.Repositories;
+﻿using NetCoreAdoNet.Models;
+using NetCoreAdoNet.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,13 +51,10 @@ namespace NetCoreAdoNet
         private async void lstOficios_SelectedIndexChanged(object sender, EventArgs e)
         {
             string oficio = this.lstOficios.SelectedItem.ToString();
-            string resultados = await this.repoUpdateEmpleados.GetInfoSalarialAsync(oficio);
-            string suma = resultados.Split('-')[0].Trim();
-            string media = resultados.Split('-')[1].Trim();
-            string maximo = resultados.Split('-')[2].Trim();
-            this.lblSuma.Text = suma;
-            this.lblMedia.Text = media;
-            this.lblMaximo.Text = maximo;
+            DatosEmpleados datosEmpleados = await this.repoUpdateEmpleados.GetDatosEmpleadosAsync(oficio);
+            this.lblSuma.Text = datosEmpleados.SumaSalarial.ToString();
+            this.lblMedia.Text = datosEmpleados.MediaSalarial.ToString();
+            this.lblMaximo.Text = datosEmpleados.MaximoSalario.ToString();
             await this.LoadEmpleados(oficio);
         }
     }
