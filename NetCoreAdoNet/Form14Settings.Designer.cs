@@ -32,6 +32,7 @@
             lblConexion = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            btnLeerHelper = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -73,11 +74,22 @@
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
             // 
+            // btnLeerHelper
+            // 
+            btnLeerHelper.Location = new Point(237, 35);
+            btnLeerHelper.Name = "btnLeerHelper";
+            btnLeerHelper.Size = new Size(158, 44);
+            btnLeerHelper.TabIndex = 4;
+            btnLeerHelper.Text = "Leer helper conf";
+            btnLeerHelper.UseVisualStyleBackColor = true;
+            btnLeerHelper.Click += btnLeerHelper_Click;
+            // 
             // Form14Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(478, 386);
+            ClientSize = new Size(727, 537);
+            Controls.Add(btnLeerHelper);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(lblConexion);
@@ -96,5 +108,6 @@
         private Label lblConexion;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Button btnLeerHelper;
     }
 }
